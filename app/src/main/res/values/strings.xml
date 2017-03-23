@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Agenda</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- CAMPOS -->
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">E-mail</string>
+    <string name="endereco">Endereço</string>
+
+    <!-- BOTOES -->
+    <string name="salvar">Salvar</string>
+
+    <!-- MENSAGEM -->
+    <string name="salvo_sucesso">Salvo com sucesso</string>
+    <string name="digite_seu_nome">Digite seu Nome</string>
+    <string name="digite_seu_email">Digite seu E-mail</string>
+    <string name="digite_seu_telefone">Digite se Telefone</string>
+    <string name="nao_foi_possivel_salvar">Não foi possível salvar</string>
+    <string name="salvo_com_sucesso">Salvo com sucesso</string>
+</resources>
