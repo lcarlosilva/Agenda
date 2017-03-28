@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.study.luizarruda.agenda.model.Contato;
@@ -26,19 +27,39 @@ public class ContatoDAO {
         this.context = context;
     }
 
-    public void inserir(Contato contato){
-        dao = new BancoDAO(context);
+    public long inserir(Contato contato){
+        dao = getInstanceBancoDAO(context);
         SQLiteDatabase db = dao.getWritableDatabase();
         ContentValues dados = pegaDadosContato(contato);
         long inserir = db.insert(BANCO_NOME, null, dados);
         db.close();
 
         Log.i(BANCO_NOME, inserir + "");
+
+        return inserir;
     }
 
-    public List<Contato> buscarContatos(){
+    public void alterar(Contato contato){
+        dao = getInstanceBancoDAO(context);
+        SQLiteDatabase db = dao.getWritableDatabase();
+        ContentValues dados = pegaDadosContato(contato);
+        String[] params = {String.valueOf(contato.getId())};
+        db.update("Contato",dados, "id=?", params);
+        db.close();
+    }
+
+    public void deletar(Contato contato){
+        dao = getInstanceBancoDAO(context);
+        SQLiteDatabase db = dao.getWritableDatabase();
+        String whereClause = "id=?";
+        String[] whereArgs = new String[]{String.valueOf(contato.getId())};
+        db.delete(BANCO_NOME, whereClause, whereArgs);
+        db.close();
+    }
+
+    public List<Contato> buscar(){
         String sql = "SELECT * FROM " + BANCO_NOME;
-        dao = new BancoDAO(context);
+        dao = getInstanceBancoDAO(context);
         SQLiteDatabase db = dao.getReadableDatabase();
 
         //AUXILIA A PEGAR OS REGISTROS DA CONSULTA QUE EFETUEI
@@ -65,5 +86,10 @@ public class ContatoDAO {
         dados.put("email", contato.getEmail());
         dados.put("telefone", contato.getTelefone());
         return dados;
+    }
+
+    @NonNull
+    private BancoDAO getInstanceBancoDAO(Context context) {
+        return new BancoDAO(context);
     }
 }

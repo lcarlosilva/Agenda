@@ -1,10 +1,12 @@
 package com.study.luizarruda.agenda.model;
 
+import java.io.Serializable;
+
 /**
  * Created by luiz.arruda on 06/03/2017.
  */
 
-public class Contato {
+public class Contato implements Serializable {
 
     private long id;
     private String nome;

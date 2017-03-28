@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/contato_ligar"
+        android:icon="@mipmap/ic_launcher"
+        android:title="Ligar" />
+
+    <item
+        android:id="@+id/contato_email"
+        android:icon="@mipmap/ic_launcher"
+        android:title="E-mail" />
+
+    <item
+        android:id="@+id/contato_apagar"
+        android:icon="@mipmap/ic_launcher"
+        android:title="Apagar" />
+</menu>

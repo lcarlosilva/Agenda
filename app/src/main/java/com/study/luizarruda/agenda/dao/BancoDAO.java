@@ -33,5 +33,6 @@ public class BancoDAO extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //EXCLUI A TABELA CASO ELA EXISTA
         db.execSQL("DROP TABLE IF EXIST Contato;");
+        db.execSQL(TABLE_CONTATO);
     }
 }
